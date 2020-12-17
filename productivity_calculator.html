@@ -1,0 +1,229 @@
+<html>
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="utf-8" http-equiv="encoding">
+        <style>
+            table, caption, tbody, tfoot, thead, tr, th, td {
+                font-style: normal;
+                font-weight: normal;
+                text-align: left;
+
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <form action="#" onchange="update();" onsubmit="return false">
+            <div id="HoursandProductivity">
+                <h4>Hours and Productivity</h4>
+
+                <table>
+                    <tr>
+                        <th><label for="ApproximateEncounters">Approximate Encounters: </label></th>
+                        <th><ins id="ApproximateEncounters"> </ins></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="StartingCensus">Starting Census: </label></th>
+                        <th><input type="text" id="StartingCensus" value="0" /></th>
+                    </tr>
+
+
+                    <tr>
+                        <th><label for="TotalCorrectedHours">Total Corrected Hours: </label></th>
+                        <th><ins id="TotalCorrectedHours"> </ins></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="Productivity">Productivity (Pts/cHr): </label></th>
+                        <th><ins id="Productivity"> </ins></th>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="FixedStaffing">
+                <h4>"Fixed" Staffing</h4>
+
+                <table>
+                    <tr>
+                        <th><label for="Admitter1">Admitter 1: </label></th>
+                        <th><input type="text" id="Admitter1" class="HalfTime" value="10" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="Admitter1">Admitter 2: </label></th>
+                        <th><input type="text" id="Admitter2" class="HalfTime" value="10" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="APPRounder1">APP Rounder 1: </label></th>
+                        <th><input type="text" id="APPRounder1" class="HalfTime APPRounder" value="12" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="APPRounder2">APP Rounder 2: </label></th>
+                        <th><input type="text" id="APPRounder2" class="HalfTime APPRounder" value="12" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="Nocturnist">Nocturnist: </label></th>
+                        <th><input type="text" id="Nocturnist" class="FullTime" value="12" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="NocturnistXcover">Nocturnist X-cover: </label></th>
+                        <th><input type="text" id="NocturnistXcover" class="HalfTime" value="12" /></th>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="VariableStaffing">
+                <h4>Variable Staffing</h4>
+
+                <table>
+                    <tr>
+                        <th><label for="PhysicianRounder1">Physician Rounder 1 (LEAD): </label></th>
+                        <th><input type="text" id="PhysicianRounder1" class="PhysicianRounder FullTime" value="12" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="PhysicianRounder2">Physician Rounder 2: </label></th>
+                        <th><input type="text" id="PhysicianRounder2" class="PhysicianRounder NotLead FullTime" value="12" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="PhysicianRounder3">Physician Rounder 3: </label></th>
+                        <th><input type="text" id="PhysicianRounder3" class="PhysicianRounder NotLead FullTime" value="12" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="PhysicianRounder4">Physician Rounder 4: </label></th>
+                        <th><input type="text" id="PhysicianRounder4" class="PhysicianRounder NotLead FullTime" value="12" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="PhysicianRounder5">Physician Rounder 5: </label></th>
+                        <th><input type="text" id="PhysicianRounder5" class="PhysicianRounder NotLead FullTime" value="12" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="PhysicianRounder6">Physician Rounder 6: </label></th>
+                        <th><input type="text" id="PhysicianRounder6" class="PhysicianRounder NotLead FullTime" value="12" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="PhysicianRounder7">Physician Rounder 7: </label></th>
+                        <th><input type="text" id="PhysicianRounder7" class="PhysicianRounder NotLead FullTime" value="12" /></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="Surge1">Surge 1: </label></th>
+                        <th><input type="text" id="Surge1" class="PhysicianRounder NotLead FullTime" value="0" /></th>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div id="ListSplitting">
+                <h4>List Splitting</h4>
+
+                <table>
+                    <tr>
+                        <th><label for="DayPhysicianRounderHours">Day Physician Rounder Hours: </label></th>
+                        <th><ins id="DayPhysicianRounderHours"> </ins></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="DayAPPRounderHours">Day APP Rounder Hours: </label></th>
+                        <th><ins id="DayAPPRounderHours"> </ins></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="ApproxPatientsforLeadPhysician">Approx Patients for Lead Physician: </label></th>
+                        <th><ins id="ApproxPatientsforLeadPhysician"> </ins></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="ApproxPatientsperPhysicianRoundingTeam">Approx Patients per Physician Rounding Team: </label></th>
+                        <th><ins id="ApproxPatientsperPhysicianRoundingTeam"> </ins></th>
+                    </tr>
+
+                    <tr>
+                        <th><label for="ApproxPatientsperAPPRoundingTeam">Approx Patients per APP Rounding Team: </label></th>
+                        <th><ins id="ApproxPatientsperAPPRoundingTeam"> </ins></th>
+                    </tr>
+
+                </table>
+            </div>
+
+            <div id="Assumptions">
+                <h4>Assumptions:</h4>
+
+                <ul>
+                    <li> Lead physician takes 85% load of patients/cHr
+                    <li> Rounding APPs take 80% load of patients/cHr
+                    <li> Average LOS 5 days so daily encountes are 1.2x starting census
+                </ul>
+            </div>
+        </form>
+
+        <div id="a"></div>
+        <script>
+            function getValue(id) {
+                return parseFloat(document.getElementById(id).value);
+            }
+            function getValues(className) {
+                return Array.from(document.getElementsByClassName(className)).map(elt => parseFloat(elt.value));
+            }
+            function writeValue(id, value, precision) {
+                document.getElementById(id).innerHTML = value.toFixed(precision);
+            }
+
+            function sum(arr) {
+                return arr.reduce((x, y) => x + y, 0);
+            }
+
+            function update() {
+
+                const leadPhysicianLoad = 0.85;
+                const roundingAPPLoad = 0.80;
+                const dailyEncounterRate = 1.2;
+
+                let startingCensus = getValue("StartingCensus");
+
+                let full = getValues("FullTime");
+                let half = getValues("HalfTime");
+
+                let approxEncounters = startingCensus * dailyEncounterRate;
+                writeValue("ApproximateEncounters", approxEncounters, 0);;
+
+                let totalCorrectedHours = sum(full) + 0.5 * sum(half);
+                writeValue("TotalCorrectedHours", totalCorrectedHours, 1);
+
+                let productivity = approxEncounters / totalCorrectedHours;
+                writeValue("Productivity", productivity, 2);
+
+                let dayPhysicianRounderHours = sum(getValues("PhysicianRounder"));
+                writeValue("DayPhysicianRounderHours", dayPhysicianRounderHours, 0);
+
+                let dayAPPRounderHours = sum(getValues("APPRounder"));
+                writeValue("DayAPPRounderHours", dayAPPRounderHours, 0);
+
+                let splitterHours = (leadPhysicianLoad * getValue("PhysicianRounder1")) + (0.8 * dayAPPRounderHours) + (sum(getValues("NotLead")));
+                console.log("Splitter Hours: " + splitterHours);
+
+                let approxPatientsforLeadPhysician = leadPhysicianLoad * getValue("PhysicianRounder1") / splitterHours * startingCensus;
+                writeValue("ApproxPatientsforLeadPhysician", approxPatientsforLeadPhysician, 1);
+
+                let approxPatientsperPhysicianRoundingTeam = getValue("PhysicianRounder2") / splitterHours * startingCensus;
+                writeValue("ApproxPatientsperPhysicianRoundingTeam", approxPatientsperPhysicianRoundingTeam, 1);
+
+                let approxPatientsperAPPRoundingTeam = getValue("APPRounder1") * 0.8 / splitterHours * startingCensus;
+                writeValue("ApproxPatientsperAPPRoundingTeam", approxPatientsperAPPRoundingTeam, 1);
+
+            }
+            update();
+        </script>
+    </body>
+</html>
