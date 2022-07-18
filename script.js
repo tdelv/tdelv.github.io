@@ -47,7 +47,7 @@ function init() {
 
     audioCtx = new AudioContext();
     // track = audioCtx.createMediaElementSource(audioElement);
-    track = OscillatorNode();
+    track = audioCtx.createOscillator();
 
     // volume
     const gainNode = audioCtx.createGain();
