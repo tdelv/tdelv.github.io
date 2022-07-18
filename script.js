@@ -46,7 +46,8 @@ audioElement.addEventListener('ended', () => {
 function init() {
 
     audioCtx = new AudioContext();
-    track = audioCtx.createMediaElementSource(audioElement);
+    // track = audioCtx.createMediaElementSource(audioElement);
+    track = OscillatorNode();
 
     // volume
     const gainNode = audioCtx.createGain();
@@ -60,21 +61,22 @@ function init() {
     const pannerOptions = { pan: 0 };
     const panner = new StereoPannerNode(audioCtx, pannerOptions);
 
-    // const pannerControl = document.querySelector('[data-action="panner"]');
-    // pannerControl.addEventListener('input', function () {
-    //     panner.pan.value = this.value;
-    // }, false);
+    const pannerControl = document.querySelector('[data-action="panner"]');
+    pannerControl.addEventListener('input', function () {
+        // panner.pan.value = this.value;
+        track.frequency = this.value;
+    }, false);
 
-    let delta = 0.01;
+    // let delta = 0.01;
 
-    (function(){
-        // do some stuff
-        if (Math.abs(panner.pan.value + delta) > 1) {
-            delta *= -1;
-        }
-        panner.pan.value += delta;
-        setTimeout(arguments.callee, 10);
-    })();
+    // (function(){
+    //     // do some stuff
+    //     if (Math.abs(panner.pan.value + delta) > 1) {
+    //         delta *= -1;
+    //     }
+    //     panner.pan.value += delta;
+    //     setTimeout(arguments.callee, 10);
+    // })();
 
     // connect our graph
     track.connect(gainNode).connect(panner).connect(audioCtx.destination);
