@@ -65,7 +65,7 @@ function init() {
     //     panner.pan.value = this.value;
     // }, false);
 
-    const delta = 0.01;
+    let delta = 0.01;
 
     (function(){
         // do some stuff
