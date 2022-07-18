@@ -1,14 +1,13 @@
-console.clear();
+// create web audio api context
+const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-// instigate our audio context
+// create Oscillator node
+const oscillator = audioCtx.createOscillator();
 
-// for cross browser
-const AudioContext = window.AudioContext || window.webkitAudioContext;
-let audioCtx;
-
-// load some sound
-const audioElement = document.querySelector('audio');
-let track;
+oscillator.type = 'square';
+oscillator.frequency.setValueAtTime(440, audioCtx.currentTime); // value in hertz
+oscillator.connect(audioCtx.destination);
+// oscillator.start();
 
 const playButton = document.querySelector('.tape-controls-play');
 
@@ -24,11 +23,11 @@ playButton.addEventListener('click', function () {
     }
 
     if (this.dataset.playing === 'false') {
-        audioElement.play();
+        oscillator.start();
         this.dataset.playing = 'true';
         // if track is playing pause it
     } else if (this.dataset.playing === 'true') {
-        audioElement.pause();
+        oscillator.stop();
         this.dataset.playing = 'false';
     }
 
@@ -36,50 +35,3 @@ playButton.addEventListener('click', function () {
     this.setAttribute('aria-checked', state ? "false" : "true");
 
 }, false);
-
-// if track ends
-audioElement.addEventListener('ended', () => {
-    playButton.dataset.playing = 'false';
-    playButton.setAttribute("aria-checked", "false");
-}, false);
-
-function init() {
-
-    audioCtx = new AudioContext();
-    // track = audioCtx.createMediaElementSource(audioElement);
-    track = audioCtx.createOscillator();
-
-    // volume
-    const gainNode = audioCtx.createGain();
-
-    const volumeControl = document.querySelector('[data-action="volume"]');
-    volumeControl.addEventListener('input', function () {
-        gainNode.gain.value = this.value;
-    }, false);
-
-    // panning
-    const pannerOptions = { pan: 0 };
-    const panner = new StereoPannerNode(audioCtx, pannerOptions);
-
-    const pannerControl = document.querySelector('[data-action="panner"]');
-    pannerControl.addEventListener('input', function () {
-        // panner.pan.value = this.value;
-        track.frequency = this.value;
-    }, false);
-
-    // let delta = 0.01;
-
-    // (function(){
-    //     // do some stuff
-    //     if (Math.abs(panner.pan.value + delta) > 1) {
-    //         delta *= -1;
-    //     }
-    //     panner.pan.value += delta;
-    //     setTimeout(arguments.callee, 10);
-    // })();
-
-    // connect our graph
-    track.connect(gainNode).connect(panner).connect(audioCtx.destination);
-}
-
-// Track credit: Outfoxing the Fox by Kevin MacLeod under Creative Commons
