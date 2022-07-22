@@ -1,7 +1,3 @@
-<!-- <audio src="myCoolTrack.mp3"></audio>
-<button data-playing="false" role="switch" aria-checked="false">
-    <span>Play/Pause</span>
-</button> -->
 <!DOCTYPE html>
 <html>
 
@@ -15,52 +11,30 @@
 </head>
 
 <body>
-
-    <div id="boombox">
-        <div class="boombox-handle"></div>
-
-        <div class="boombox-body">
-
-            <section class="master-controls">
-                <input type="range" id="volume" class="control-volume" min="0" max="2" value="1" list="gain-vals"
-                    step="0.01" data-action="volume" />
-                <datalist id="gain-vals">
-                    <option value="0" label="min">
-                    <option value="2" label="max">
-                </datalist>
-                <label for="volume">VOL</label>
-
-                <!-- <input type="range" id="panner" class="control-panner" list="pan-vals" min="-1" max="1" value="0" -->
-                <!-- step="0.01" data-action="panner" /> -->
-                <input type="range" id="panner" class="control-panner" list="pan-vals" min="110" max="1760" value="0"
-                step="10" data-action="panner" />
-                <datalist id="pan-vals">
-                    <option value="-1" label="left">
-                    <option value="1" label="right">
-                </datalist>
-                <label for="panner">PAN</label>
-
-                <button class="control-power" role="switch" aria-checked="false" data-power="on">
-                    <span>On/Off</span>
-                </button>
-            </section>
-
-            <section class="tape">
-
-                <audio src="myCoolTrack.mp3" crossorigin="anonymous"></audio>
-
-                <!-- 			type="audio/mpeg" -->
-
-                <button data-playing="false" class="tape-controls-play" role="switch" aria-checked="false">
-                    <span>Play/Pause</span>
-                </button>
-            </section>
-
-        </div><!-- boombox-body -->
+    <div id="notes">
+        
     </div>
 
-    <script type="text/javascript" src="script.js">
+    <div id="buttons">
+        <input type="range" id="volume" class="control-volume" min="0" max="2" value="1" list="gain-vals"
+            step="0.01" data-action="volume" />
 
+        <br/>
+
+        <button class="add-note">
+            <span>Add note</span>
+        </button>
+
+        <button class="remove-note">
+            <span>Remove note</span>
+        </button>
+    </div>
+
+    <canvas class="visualizer">
+
+    </canvas>
+
+    <script type="text/javascript" src="script.js">
     </script>
 
 </body>
